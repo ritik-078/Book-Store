@@ -8,6 +8,7 @@ const cors = require('cors')
 
 app.use(express.json())
 app.use(cors())
+
 // app.use(cors(
 //     {
 //         origin : 'http://localhost:5000',
@@ -21,6 +22,7 @@ app.get('/', (request,response) => {
 
 app.use('/books',bookRouter)
 
+// Connect to MongoDB database
 mongoose.connect(mongoDBURL)
     .then(() => {
         console.log("Connected to Database")
