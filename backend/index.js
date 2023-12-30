@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -6,13 +7,14 @@ const {bookRouter} = require('./routes/bookRoutes')
 const cors = require('cors') 
 
 app.use(express.json())
-app.use(cors(
-    {
-        origin : 'http://localhost:5000',
-        methods : ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders : ['Content-type']
-    } 
-))
+app.use(cors())
+// app.use(cors(
+//     {
+//         origin : 'http://localhost:5000',
+//         methods : ['GET', 'POST', 'PUT', 'DELETE'],
+//         allowedHeaders : ['Content-type']
+//     } 
+// ))
 app.get('/', (request,response) => {
     return response.status(200).send('Home Page')
 })
@@ -29,4 +31,4 @@ mongoose.connect(mongoDBURL)
     }) 
     .catch((err) => {
         console.log(err)
-    })
+    }) 

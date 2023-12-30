@@ -1,6 +1,6 @@
-const PORT = 5000
-const mongoDBURL = 
-    'mongodb+srv://ritikbhateley125:SSlhuDil7lWFdnvP@bookstore.oezdch2.mongodb.net/?retryWrites=true&w=majority'
+const PORT = process.env.port
+const mongoDBURL = process.env.mongoURL
     
-module.exports.PORT = PORT 
-module.exports.mongoDBURL = mongoDBURL
+    
+module.exports = {PORT, mongoDBURL}
+ 
